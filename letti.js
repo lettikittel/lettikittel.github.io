@@ -1,6 +1,7 @@
 function getRandomFoxImage() {
-  fetch("https://randomfox.ca/floof/")
-    .then(data => console.log(data))
+  fetch("https://random.dog/woof.json")
+    .then(response => response.json())
+    .then(data => console.log(data.url))
 }
 
 getRandomFoxImage()
