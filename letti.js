@@ -1,4 +1,5 @@
 const sexyPicUrls = [
+  "https://imgaz1.chiccdn.com/thumb/large/oaupload/banggood/images/AE/4E/1233a68d-8f30-490e-8a68-a43e7fc5e40a.jpg",
   "https://i.pinimg.com/474x/7a/60/f6/7a60f6aa9df9e489cb20f1e7a6969c02--hot-firefighters-hot-firemen.jpg",
   "https://i.pinimg.com/236x/80/e1/5d/80e15dcae37a5566ceaa9869154e98fa--hot-firefighters-hot-firemen.jpg",
   "https://cdn.psychologytoday.com/sites/default/files/styles/amp_metadata_content_image_min_1200px_wide/public/blogs/2439/2011/09/75008-65456.jpg?itok=qErqBpwj",
@@ -11,7 +12,6 @@ const sexyPicUrls = [
   "https://atavisionary.com/wp-content/uploads/2016/12/female_firefighters_44.jpg",
   "https://i.imgur.com/WaorhYA.jpg",
   "https://external-preview.redd.it/K27qJdcO4UAhhtzuYncMEPnFQPCJi_2LRr16DmY1h44.jpg?auto=webp&s=5cfb153f669db0c1a64384ba98ac36e67f1aa075",
-  "https://imgaz1.chiccdn.com/thumb/large/oaupload/banggood/images/AE/4E/1233a68d-8f30-490e-8a68-a43e7fc5e40a.jpg",
   "https://lh3.googleusercontent.com/proxy/Erc_IdEW6HspqQ-lWx3NoGGM2ul-2bYaOHMoGvL-I-zhoXjeKiiog3NDAZG-xqO7YLBOiqNljZs2dOMLUczAgJ8IxNl3wnVBZe8o-VaGx3fa4Z9MirL9zgg2",
   "https://i.pinimg.com/originals/77/b5/20/77b52099ec2e1469e2734cf04c57ca77.jpg",
   "https://previews.123rf.com/images/vladnikon/vladnikon1803/vladnikon180300137/96706473-3d-sexy-goth-girl-big-blue-eyes-and-bright-makeup-in-stockings-woman-retro-style-dress-corset-bow-da.jpg",
@@ -22,20 +22,145 @@ const sexyPicUrls = [
   "https://www.dictionary.com/e/wp-content/uploads/2018/03/hey_girl.jpg",
 ]
 
+const friendCompliments = [
+  {
+    person: "Matt S",
+    answers: [
+      "kindness is",
+      "human",
+      "spoon is wooden"
+    ]
+  },
+  {
+    person: "Eric",
+    answers: [
+      "fragrence is",
+      "rejuvenating",
+      "excretions are delicious"
+    ]
+  },
+  {
+    person: "Roger",
+    answers: [
+      "moves are",
+      "ratchet",
+      "grooves is matchin'"
+    ]
+  },
+  {
+    person: "Avery",
+    answers: [
+      "hand is",
+      "nimble",
+      "brain is equally as nimble"
+    ]
+  },
+  {
+    person: "Leo",
+    answers: [
+      "presence is",
+      "calming",
+      "vibe is hella dank"
+    ]
+  },
+  {
+    person: "Joe",
+    answers: [
+      "",
+      "",
+      "",
+      ""
+    ]
+  },
+  {
+    person: "Neil",
+    answers: [
+      "",
+      "",
+      "",
+      ""
+    ]
+  },
+  {
+    person: "Alisha",
+    answers: [
+      "",
+      "",
+      "",
+      ""
+    ]
+  },
+  {
+    person: "Matt CP",
+    answers: [
+      "",
+      "",
+      "",
+      ""
+    ]
+  },
+]
+
+const friendComplimentList = document.querySelector("#friend-compliments")
+
 function getSexyImage() {
   return sexyPicUrls[Math.floor(Math.random() * sexyPicUrls.length)]
 }
 
-function setBackgroundImage() {
-  document.body.style.background = `url(${ getSexyImage() }) top left repeat`;
+function setBackgroundImage(url) {
+  document.body.style.background = `url(${ url }) top left repeat`;
   document.body.style.backgroundSize = "20%";
+}
+
+function defaultBackgroundImage() {
+  setBackgroundImage(sexyPicUrls[0])
+}
+
+function randomBackgroundImage() {
+  setBackgroundImage(getSexyImage())
+}
+
+function makeCompliment(answers) {
+  const complimentTextPar = document.createElement("P")
+  complimentTextPar.innerHTML = `Letti, in the time you've been at the Swamp so far, I've noticed your ${ answers[0] } super ${ answers[1] } and your ${ answers[2] }`
+  return complimentTextPar
+}
+
+function makePerson(person) {
+  const personTextPar = document.createElement("P")
+  personTextPar.innerHTML = ` - ${ person }`
+  return personTextPar
+}
+
+function makeFriendCompliment(person, answers) {
+  const friendCompliment = document.createElement("DIV")
+  friendCompliment.appendChild(makeCompliment(answers))
+  friendCompliment.appendChild(makePerson(person))
+  return friendCompliment
+}
+
+function addFriendComplimentToList(compliment) {
+  const complimentListItem = document.createElement("LI")
+  complimentListItem.appendChild(compliment)
+  friendComplimentList.appendChild(complimentListItem)
+}
+
+function addFriendCompliments() {
+  friendCompliments.forEach(compliment => {
+    const friendCompliment = makeFriendCompliment(
+      compliment.person,
+      compliment.answers
+    )
+    addFriendComplimentToList(friendCompliment)
+  })
 }
 
 function setUpEventListeners() {
   document.getElementById("background")
-    .addEventListener("click", setBackgroundImage)
+    .addEventListener("click", randomBackgroundImage)
 }
 
-setBackgroundImage()
+defaultBackgroundImage()
+addFriendCompliments()
 setUpEventListeners()
 
