@@ -4,7 +4,7 @@ body {
 }
 
 h1, h2 {
-  margin: 0 0 0 0.25em;
+  margin: 0.25em 0 0 0.25em;
 }
 
 h1 {
@@ -47,10 +47,14 @@ button {
   padding: 0.2em 0.3em;
 }
 
+#random-compliment {
+  margin:  0.75em 1em;
+  font-style: italic;
+}
+
 ul {
   margin: 0;
   padding: 0 1.5em;
-  width: 
 }
 
 li {

@@ -28,7 +28,8 @@ const friendCompliments = [
     answers: [
       "kindness is",
       "human",
-      "spoon is wooden"
+      "spoon is",
+      "wooden"
     ]
   },
   {
@@ -36,7 +37,8 @@ const friendCompliments = [
     answers: [
       "fragrence is",
       "rejuvenating",
-      "excretions are delicious"
+      "excretions are",
+      "delicious"
     ]
   },
   {
@@ -44,7 +46,8 @@ const friendCompliments = [
     answers: [
       "moves are",
       "ratchet",
-      "grooves is matchin'"
+      "grooves is",
+      "matchin'"
     ]
   },
   {
@@ -52,7 +55,8 @@ const friendCompliments = [
     answers: [
       "hand is",
       "nimble",
-      "brain is equally as nimble"
+      "brain is",
+      "equally as nimble"
     ]
   },
   {
@@ -60,7 +64,8 @@ const friendCompliments = [
     answers: [
       "presence is",
       "calming",
-      "vibe is hella dank"
+      "vibe is",
+      "hella dank"
     ]
   },
   {
@@ -94,35 +99,66 @@ const friendCompliments = [
     person: "Matt CP",
     answers: [
       "",
-      "",
+      "",    
       "",
       ""
     ]
   },
 ]
 
-const friendComplimentList = document.querySelector("#friend-compliments")
+const firstAnswers = [
+  "booty is",
+  "elbow is",
+  "personality is",
+]
 
-function getSexyImage() {
-  return sexyPicUrls[Math.floor(Math.random() * sexyPicUrls.length)]
+const secondAnswers = [
+  "rock solid",
+  "unbelievable",
+  "tight",
+]
+
+const thirdAnswers = [
+  "pilate skills are",
+  "kindness is",
+  "clarity of mind is",
+]
+
+const friendComplimentList = document.querySelector("#friend-compliments")
+const randomCompliment = document.querySelector("#random-compliment")
+
+function getRandomItem(array) {
+  return array[Math.floor(Math.random() * array.length)]
 }
 
-function setBackgroundImage(url) {
+function getSexyImage() {
+  return getRandomItem(sexyPicUrls)
+}
+
+function setBackgroundImageUrl(url) {
   document.body.style.background = `url(${ url }) top left repeat`;
   document.body.style.backgroundSize = "20%";
 }
 
-function defaultBackgroundImage() {
-  setBackgroundImage(sexyPicUrls[0])
+function setDefaultBackgroundImage() {
+  setBackgroundImageUrl(sexyPicUrls[0])
 }
 
-function randomBackgroundImage() {
-  setBackgroundImage(getSexyImage())
+function setNewRandomBackgroundImage() {
+  setBackgroundImageUrl(getSexyImage())
+}
+
+function makeComplimentText(answers) {
+  return `Letti, in the time you've
+  been at the Swamp so far, I've noticed your
+   <strong>${ answers[0] }</strong>
+   super <strong>${ answers[1] }</strong>
+   and your <strong>${ answers[2] } ${ answers[3] }</strong>!`
 }
 
 function makeCompliment(answers) {
   const complimentTextPar = document.createElement("P")
-  complimentTextPar.innerHTML = `Letti, in the time you've been at the Swamp so far, I've noticed your ${ answers[0] } super ${ answers[1] } and your ${ answers[2] }`
+  complimentTextPar.innerHTML = makeComplimentText(answers)
   return complimentTextPar
 }
 
@@ -130,6 +166,16 @@ function makePerson(person) {
   const personTextPar = document.createElement("P")
   personTextPar.innerHTML = ` - ${ person }`
   return personTextPar
+}
+
+function generateRandomCompliment() {
+  const compliment = makeComplimentText([
+    getRandomItem(firstAnswers),
+    getRandomItem(secondAnswers),
+    getRandomItem(thirdAnswers),
+    getRandomItem(secondAnswers)
+  ])
+  randomCompliment.innerHTML = compliment
 }
 
 function makeFriendCompliment(person, answers) {
@@ -156,11 +202,14 @@ function addFriendCompliments() {
 }
 
 function setUpEventListeners() {
-  document.getElementById("background")
-    .addEventListener("click", randomBackgroundImage)
+  document.getElementById("background-button")
+    .addEventListener("click", setNewRandomBackgroundImage)
+  document.getElementById("compliment-button")
+    .addEventListener("click", generateRandomCompliment)
 }
 
-defaultBackgroundImage()
+setDefaultBackgroundImage()
+generateRandomCompliment()
 addFriendCompliments()
 setUpEventListeners()
 
