@@ -12,7 +12,6 @@ const sexyPicUrls = [
   "https://atavisionary.com/wp-content/uploads/2016/12/female_firefighters_44.jpg",
   "https://i.imgur.com/WaorhYA.jpg",
   "https://external-preview.redd.it/K27qJdcO4UAhhtzuYncMEPnFQPCJi_2LRr16DmY1h44.jpg?auto=webp&s=5cfb153f669db0c1a64384ba98ac36e67f1aa075",
-  "https://lh3.googleusercontent.com/proxy/Erc_IdEW6HspqQ-lWx3NoGGM2ul-2bYaOHMoGvL-I-zhoXjeKiiog3NDAZG-xqO7YLBOiqNljZs2dOMLUczAgJ8IxNl3wnVBZe8o-VaGx3fa4Z9MirL9zgg2",
   "https://i.pinimg.com/originals/77/b5/20/77b52099ec2e1469e2734cf04c57ca77.jpg",
   "https://previews.123rf.com/images/vladnikon/vladnikon1803/vladnikon180300137/96706473-3d-sexy-goth-girl-big-blue-eyes-and-bright-makeup-in-stockings-woman-retro-style-dress-corset-bow-da.jpg",
   "https://external-preview.redd.it/5PfmaVqoRsBhdccYYQQBgT4o9pcmGYzUky5nZ3byC50.jpg?auto=webp&s=45307e965c02135c00ed79e24f13382915636359",
@@ -80,9 +79,9 @@ const friendCompliments = [
   {
     person: "Neil",
     answers: [
-      "life",
+      "life is",
       "inspiring",
-      "wit",
+      "wit is",
       "sharp"
     ]
   },
@@ -110,17 +109,22 @@ const nouns = [
   "booty is",
   "elbow is",
   "personality is",
-  "pilate skills are",
+  "bravery is",
   "kindness is",
   "clarity of mind is",
   "face is",
   "abs are",
   "hair is",
-  "tinder profile is",
-  "sexy-ness is",
+  "influence is",
+  "sexyness is",
   "worldliness is",
   "presence of mind is",
   "fists are",
+  "tenacity is",
+  "grit is totally",
+  "reputation is",
+  "love is",
+  "appreciation of others is"
 ]
 
 const adjectives = [
@@ -142,10 +146,16 @@ const adjectives = [
   "sexy",
   "bringing sexy back (YEAH)",
   "wild",
+  "like, BRUH",
+  "cool like the other side of the pillow",
+  "cooler than being cool",
+  "spiffy",
+  "sugary",
 ]
 
 const friendComplimentList = document.querySelector("#friend-compliments")
 const randomCompliment = document.querySelector("#random-compliment")
+const backgroundImage = document.getElementById("background-image")
 
 function getRandomItem(array) {
   return array[Math.floor(Math.random() * array.length)]
@@ -156,6 +166,7 @@ function getSexyImage() {
 }
 
 function setBackgroundImageUrl(url) {
+  backgroundImage.src = url
   document.body.style.background = `url(${ url }) top left repeat`;
   document.body.style.backgroundSize = "20%";
 }
@@ -169,8 +180,7 @@ function setNewRandomBackgroundImage() {
 }
 
 function makeComplimentText(answers) {
-  return `Letti, in the time you've
-  been at the Swamp so far, I've noticed your
+  return `Hey Letti...I noticed your
    <strong>${ answers[0] }</strong>
    super <strong>${ answers[1] }</strong>
    and your <strong>${ answers[2] } ${ answers[3] }</strong>!`
@@ -184,8 +194,16 @@ function makeCompliment(answers) {
 
 function makePerson(person) {
   const personTextPar = document.createElement("P")
-  personTextPar.innerHTML = ` - ${ person }`
+  personTextPar.innerHTML = ` <span class="person">- ${ person }</span>`
   return personTextPar
+}
+
+function triggerAnimation() {
+  // trigger DOM reflow
+  // https://medium.com/better-programming/how-to-restart-a-css-animation-with-javascript-and-what-is-the-dom-reflow-a86e8b6df00f
+  randomCompliment.classList.remove("random-compliment-animation")
+  void randomCompliment.offsetWidth;
+  randomCompliment.classList.add("random-compliment-animation")
 }
 
 function generateRandomCompliment() {
@@ -196,6 +214,7 @@ function generateRandomCompliment() {
     getRandomItem(adjectives)
   ])
   randomCompliment.innerHTML = compliment
+  triggerAnimation()
 }
 
 function makeFriendCompliment(person, answers) {

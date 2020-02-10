@@ -1,7 +1,7 @@
 body {
   margin: 0 auto;
   font-family: "Arial";
-  max-width: 450px;
+  width: 412px;
 }
 
 h1, h2 {
@@ -13,7 +13,7 @@ h1 {
 }
 
 #title, #buttons, #content {
-  background-color:rgba(255, 255, 255, 0.7);
+  background-color:rgba(255, 255, 255, 0.8);
   margin: 1em auto;
   padding: 0.25rem;
   width: 75%;
@@ -24,10 +24,22 @@ h1 {
   border-radius: 1em;
 }
 
-#content {
+#title {
   display: flex;
-  flex-direction: column;
-  /* align-items: center; */
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  height: 8rem;
+}
+
+h1 {
+  width: 60%;
+}
+
+#background-image {
+  max-height: 90%;
+  max-width: 30%;
+  align-self: center;
 }
 
 #buttons {
@@ -40,17 +52,35 @@ h1 {
 button {
   border: 2px solid purple;
   border-radius: 0.5em;
-  background-color: rgba(252, 142, 243, 0.7);
-  color: rgb(111, 0, 255);
+  background-color: rgba(252, 142, 243, 0.8);
+  color: rgb(34, 0, 88);
   font-size: 1rem;
   font-weight: bold;
   width: 45%;
   padding: 0.2em 0.3em;
 }
 
+#random-compliment, .person {
+  font-style: italic;
+}
+
 #random-compliment {
   margin:  0.75em 1em;
-  font-style: italic;
+}
+
+.random-compliment-animation{
+	-webkit-animation: flash linear 0.6s;
+	animation: flash linear 0.6s;
+}
+
+@-webkit-keyframes flash {
+  0% { color: purple; opacity: .1; }
+	100% { opacity: 1; }
+}
+
+@keyframes flash {
+  0% { color: purple; opacity: .1; }
+	100% { opacity: 1; }
 }
 
 ul {
