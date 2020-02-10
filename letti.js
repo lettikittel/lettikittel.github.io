@@ -80,10 +80,10 @@ const friendCompliments = [
   {
     person: "Neil",
     answers: [
-      "",
-      "",
-      "",
-      ""
+      "life",
+      "inspiring",
+      "wit",
+      "sharp"
     ]
   },
   {
