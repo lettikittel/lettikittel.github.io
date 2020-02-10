@@ -106,22 +106,42 @@ const friendCompliments = [
   },
 ]
 
-const firstAnswers = [
+const nouns = [
   "booty is",
   "elbow is",
   "personality is",
-]
-
-const secondAnswers = [
-  "rock solid",
-  "unbelievable",
-  "tight",
-]
-
-const thirdAnswers = [
   "pilate skills are",
   "kindness is",
   "clarity of mind is",
+  "face is",
+  "abs are",
+  "hair is",
+  "tinder profile is",
+  "sexy-ness is",
+  "worldliness is",
+  "presence of mind is",
+  "fists are",
+]
+
+const adjectives = [
+  "rock solid",
+  "unbelievable",
+  "tight",
+  "amazing",
+  "fantabulous",
+  "incredible",
+  "H-O-T",
+  "hot fire",
+  "too hot to handle, too cold to quit",
+  "delicious",
+  "nutritious",
+  "out of this world",
+  "VERY NICE",
+  "excellenté",
+  "formidable",
+  "sexy",
+  "bringing sexy back (YEAH)",
+  "wild",
 ]
 
 const friendComplimentList = document.querySelector("#friend-compliments")
@@ -170,10 +190,10 @@ function makePerson(person) {
 
 function generateRandomCompliment() {
   const compliment = makeComplimentText([
-    getRandomItem(firstAnswers),
-    getRandomItem(secondAnswers),
-    getRandomItem(thirdAnswers),
-    getRandomItem(secondAnswers)
+    getRandomItem(nouns),
+    getRandomItem(adjectives),
+    getRandomItem(nouns),
+    getRandomItem(adjectives)
   ])
   randomCompliment.innerHTML = compliment
 }
