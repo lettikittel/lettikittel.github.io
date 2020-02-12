@@ -100,15 +100,16 @@ const friendCompliments = [
   {
     person: "Matt CP",
     answers: [
-      "",
-      "",
-      "",
-      ""
+      "stoke is",
+      "shreddy",
+      "ability to steal the corner seat is",
+      "bold :)"
     ]
   },
 ]
 
 const nouns = [
+  "stoke is",
   "booty is",
   "elbow is",
   "personality is",
@@ -185,7 +186,9 @@ const adjectives = [
   "sharp",
   "infectious",
   "seductive",
-  "seamless"
+  "seamless",
+  "shreddy",
+  "bold",
 ]
 
 const friendComplimentList = document.querySelector("#friend-compliments")
