@@ -70,7 +70,7 @@ const friendCompliments = [
   {
     person: "Joe",
     answers: [
-      "integration into the house",
+      "integration into the house is",
       "seamless",
       "rolling laugh is",
       `definitely going to bring a lot of
@@ -128,6 +128,21 @@ const nouns = [
   "reputation is",
   "love is",
   "appreciation of others is",
+  "spoon is",
+  "fragrence is",
+  "excretions are",
+  "moves are",
+  "grooves is",
+  "hand is",
+  "brain is",
+  "presence is",
+  "vibe is",
+  "integration into the house is",
+  "rolling laugh is",
+  "life is",
+  "wit is",
+  "energy is",
+  "smile is",
 ]
 
 const adjectives = [
@@ -158,6 +173,19 @@ const adjectives = [
   joy to a lot of folks BUT you’ll have
   to guard it carefully because they *will*
   take advantage of it DO NOT LET YOUR GUARD DOWN`,
+  "human",
+  "rejuvenating",
+  "ratchet",
+  "matchin'",
+  "nimble",
+  "equally as nimble",
+  "calming",
+  "hella dank",
+  "inspiring",
+  "sharp",
+  "infectious",
+  "seductive",
+  "seamless"
 ]
 
 const friendComplimentList = document.querySelector("#friend-compliments")
