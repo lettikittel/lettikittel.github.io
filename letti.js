@@ -101,7 +101,7 @@ const friendCompliments = [
     person: "Matt CP",
     answers: [
       "",
-      "",    
+      "",
       "",
       ""
     ]
@@ -191,6 +191,7 @@ const adjectives = [
 const friendComplimentList = document.querySelector("#friend-compliments")
 const randomCompliment = document.querySelector("#random-compliment")
 const backgroundImage = document.getElementById("background-image")
+let imgIndex = 0
 
 function getRandomItem(array) {
   return array[Math.floor(Math.random() * array.length)]
@@ -212,6 +213,18 @@ function setDefaultBackgroundImage() {
 
 function setNewRandomBackgroundImage() {
   setBackgroundImageUrl(getSexyImage())
+}
+
+// const nextImgIndex = function(idx) {
+//   return () => {
+//     idx = idx + 1
+//     return idx
+//   }
+// }(imgIndex)
+
+function setNextBackgroundImage() {
+  imgIndex = imgIndex + 1
+  setBackgroundImageUrl(sexyPicUrls[imgIndex % sexyPicUrls.length])
 }
 
 function makeComplimentText(answers) {
@@ -278,7 +291,7 @@ function addFriendCompliments() {
 
 function setUpEventListeners() {
   document.getElementById("background-button")
-    .addEventListener("click", setNewRandomBackgroundImage)
+    .addEventListener("click", () => setNextBackgroundImage())
   document.getElementById("compliment-button")
     .addEventListener("click", generateRandomCompliment)
 }
