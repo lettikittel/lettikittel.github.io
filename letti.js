@@ -70,10 +70,13 @@ const friendCompliments = [
   {
     person: "Joe",
     answers: [
-      "",
-      "",
-      "",
-      ""
+      "integration into the house",
+      "seamless",
+      "rolling laugh is",
+      `definitely going to bring a lot of
+      joy to a lot of folks BUT you’ll have
+      to guard it carefully because they *will*
+      take advantage of it DO NOT LET YOUR GUARD DOWN`
     ]
   },
   {
@@ -88,10 +91,10 @@ const friendCompliments = [
   {
     person: "Alisha",
     answers: [
-      "",
-      "",
-      "",
-      ""
+      "energy is",
+      "infectious",
+      "smile is",
+      "seductive"
     ]
   },
   {
@@ -124,7 +127,7 @@ const nouns = [
   "grit is totally",
   "reputation is",
   "love is",
-  "appreciation of others is"
+  "appreciation of others is",
 ]
 
 const adjectives = [
@@ -151,6 +154,10 @@ const adjectives = [
   "cooler than being cool",
   "spiffy",
   "sugary",
+  `definitely going to bring a lot of
+  joy to a lot of folks BUT you’ll have
+  to guard it carefully because they *will*
+  take advantage of it DO NOT LET YOUR GUARD DOWN`,
 ]
 
 const friendComplimentList = document.querySelector("#friend-compliments")
@@ -194,7 +201,8 @@ function makeCompliment(answers) {
 
 function makePerson(person) {
   const personTextPar = document.createElement("P")
-  personTextPar.innerHTML = ` <span class="person">- ${ person }</span>`
+  personTextPar.innerHTML = ` <span>- ${ person }</span>`
+  personTextPar.classList.add("person")
   return personTextPar
 }
 

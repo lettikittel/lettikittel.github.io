@@ -4,11 +4,16 @@ body {
 }
 
 h1, h2 {
-  margin: 0.25em 0 0 0.25em;
+  margin: 0.25em 0 0 0;
 }
 
 h1 {
   font-size: 2rem;
+  width: 60%;
+}
+
+h2 {
+  text-align: center;
 }
 
 #title, #buttons, #content {
@@ -16,7 +21,7 @@ h1 {
   margin: 1em auto;
   padding: 0.25rem;
   width: 75%;
-  max-width: 450px;
+  max-width: 400px;
 }
 
 #title, #content {
@@ -32,13 +37,9 @@ h1 {
   height: 10rem;
 }
 
-h1 {
-  width: 60%;
-}
-
 #background-image {
   max-height: 90%;
-  max-width: 30%;
+  max-width: 40%;
   align-self: center;
 }
 
@@ -47,6 +48,7 @@ h1 {
   display: flex;
   justify-content: space-evenly;
   padding: 0;
+  min-height: 60px;
 }
 
 button {
@@ -66,6 +68,11 @@ button {
 
 #random-compliment {
   margin:  0.75em 1em;
+  margin-bottom: 1.25em;
+}
+
+.person {
+  margin-top: 0.5em;
 }
 
 .random-compliment-animation{
@@ -89,6 +96,10 @@ ul {
 }
 
 li {
-  margin: 1em auto;
-  margin-bottom: 2em;
+  margin: 0.5em auto;
+  margin-bottom: 1.25em;
+}
+
+p {
+  margin: 0;
 }
